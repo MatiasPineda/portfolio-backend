@@ -24,11 +24,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Local
-    # 'users',
-    # 'farmacias_turno_app',
-    # 'portfolio_app',
-    # 'blog_app',
-    # 'flashcards_app',
+    'farmacias_turno_app',
+    'portfolio_app',
+    'blog_app',
+    'flashcards_app',
 
     # 3rd party
     'rest_framework',

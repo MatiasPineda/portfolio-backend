@@ -47,5 +47,5 @@ class Farmacia(models.Model):
     apertura = models.DateTimeField()
     cierre = models.DateTimeField()
     telefono = models.CharField(max_length=40, null=True)
-    lat = models.DecimalField(max_digits=9,decimal_places=7, null=True)
-    lng = models.DecimalField(max_digits=9,decimal_places=7, null=True)
+    lat = models.DecimalField(max_digits=11,decimal_places=7, null=True)
+    lng = models.DecimalField(max_digits=11,decimal_places=7, null=True)
