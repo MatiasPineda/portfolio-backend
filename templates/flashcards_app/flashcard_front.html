@@ -1,0 +1,18 @@
+{% extends 'flashcards_app/base.html' %}
+
+{% block content %}
+    <h1>{{ card.deck.name }}</h1>
+    <div class="card">
+        <div class="card-header">
+            Question {{ next_id }}
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title">{{ card.front }}</h5>
+            <div class="text-right">
+                <a href="{% url 'flashcard_back' pk=card.pk %}" class="btn btn-primary">Answer</a>
+{#                <a href="{% url 'flashcard_front' deckid=card.deck.pk pk=card.pk %}" class="btn btn-link">Previous Question</a>#}
+{#                <a href="{% url 'flashcard_front' deckid=card.deck.pk pk=card.pk %}" class="btn btn-link">Next Question</a>#}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

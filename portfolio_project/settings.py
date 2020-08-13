@@ -50,6 +50,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'portfolio_project.urls'
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8080',  # default vue
+    'http://localhost:8000',  # devault django
+)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

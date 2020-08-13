@@ -1,0 +1,23 @@
+{% extends 'flashcards_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Creating a {{ deck_name }} card!</h1>
+        <hr class="my-4">
+        <form action="" method="post">{% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.front|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.back|as_crispy_field }}
+                </div>
+            </div>
+        <button class="btn btn-primary" type="submit">Create</button>
+        </form>
+    </div>
+
+{% endblock content %}

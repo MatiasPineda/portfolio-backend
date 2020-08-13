@@ -24,6 +24,7 @@ class RegionSerializer(serializers.ModelSerializer):
         fields = ['number', 'name', 'provincias']
 
 
+
 class FarmaciaTurnoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Farmacia

@@ -1,22 +1,18 @@
-from rest_framework import generics
-from .serializer import *
+from django.urls import path
+from rest_framework import routers
 
+from .views import *
 
-class ListRegion(generics.ListAPIView):
-    queryset = Region.objects.all()
-    serializer_class = RegionSerializer
+router = routers.SimpleRouter()
 
+router.register('localidades', LocalidadViewSet, basename='localidades')
+router.register('farmaciasturno', FarmaciasViewSet, basename='farmaciasturno')
 
-class DetailComuna(generics.RetrieveAPIView):
-    queryset = Comuna.objects.all()
-    serializer_class = ComunaSerializer
+urlpatterns = router.urls
 
-
-class ListFarmaciasTurno(generics.ListAPIView):
-    queryset = Farmacia.objects.all()
-    serializer_class = FarmaciaTurnoSerializer
-
-
-class DetailFarmaciasTurno(generics.RetrieveAPIView):
-    queryset = Comuna.objects.all()
-    serializer_class = ComunaSerializer
+# urlpatterns = [
+#     path('localidades/', ListRegion.as_view(), name='localidades'),
+#     path('localidades/<str:pk>/', DetailComuna.as_view()),
+#     path('farmaciasturno/', ListFarmaciasTurno.as_view(), name='farmaciasturno'),
+#     path('farmaciasturno/<int:pk>/', DetailFarmaciasTurno.as_view()),
+# ]

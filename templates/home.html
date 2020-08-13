@@ -1,0 +1,12 @@
+<h1>Home</h1>
+{% if user.is_authenticated %}
+<p>Welcome {{ user.username }}</p>
+{% endif %}
+
+{##}
+{#<div>#}
+{#    <a href="{% url 'localidades' %}">API Localidades</a>#}
+{#</div>#}
+{#<div>#}
+{#    <a href="{% url 'farmaciasturno' %}">API Farmacias de Turno</a>#}
+{#</div>#}

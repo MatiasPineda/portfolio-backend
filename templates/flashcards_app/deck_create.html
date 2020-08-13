@@ -1,0 +1,14 @@
+{% extends 'flashcards_app/base.html' %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">New Deck</h1>
+        <hr class="my-4">
+        <form action="" method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" type="submit">Create</button>
+        </form>
+    </div>
+
+{% endblock content %}

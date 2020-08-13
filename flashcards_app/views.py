@@ -11,14 +11,18 @@ tz = pytz.timezone('America/Santiago')
 
 class DeckListView(ListView):
     model = Deck
-    template_name = 'deck_list.html'
+    template_name = 'flashcards_app/deck_list.html'
     context_object_name = 'all_deck_list'
+
+
+class Home(DeckListView):
+    template_name = 'flashcards_app/home.html'
 
 
 class DeckUpdateView(UpdateView):
     model = Deck
     fields = ('name',)
-    template_name = 'deck_update.html'
+    template_name = 'flashcards_app/deck_update.html'
     context_object_name = 'deck_update'
     success_url = reverse_lazy('deck_list')
 
@@ -26,19 +30,19 @@ class DeckUpdateView(UpdateView):
 class DeckCreateView(CreateView):
     model = Deck
     fields = ('name',)
-    template_name = 'deck_create.html'
+    template_name = 'flashcards_app/deck_create.html'
     success_url = reverse_lazy('deck_list')
 
 
 class DeckDeleteView(DeleteView):
     model = Deck
-    template_name = 'deck_delete.html'
+    template_name = 'flashcards_app/deck_delete.html'
     success_url = reverse_lazy('deck_list')
 
 
 class CardListView(ListView):
     model = Card
-    template_name = 'card_list.html'
+    template_name = 'flashcards_app/card_list.html'
     context_object_name = 'card_list'
 
     def get_queryset(self):
@@ -54,7 +58,7 @@ class CardListView(ListView):
 class CardCreateView(CreateView):
     model = Card
     fields = ('front', 'back',)
-    template_name = 'card_create.html'
+    template_name = 'flashcards_app/card_create.html'
 
     def get_success_url(self):
         return reverse('card_list', args=[self.object.deck_id])
@@ -72,7 +76,7 @@ class CardCreateView(CreateView):
 class CardUpdateView(UpdateView):
     model = Card
     fields = ('deck', 'front', 'back',)
-    template_name = 'card_update.html'
+    template_name = 'flashcards_app/card_update.html'
 
     def get_success_url(self):
         return reverse('card_list', args=[self.object.deck_id])
@@ -80,7 +84,7 @@ class CardUpdateView(UpdateView):
 
 class CardDeleteView(DeleteView):
     model = Card
-    template_name = 'card_delete.html'
+    template_name = 'flashcards_app/card_delete.html'
 
     def get_success_url(self):
         return reverse('card_list', args=[self.object.deck_id])
@@ -88,12 +92,12 @@ class CardDeleteView(DeleteView):
 
 class FlashcardFrontView(DetailView):
     model = Card
-    template_name = 'flashcard_front.html'
+    template_name = 'flashcards_app/flashcard_front.html'
 
 
 class FlashcardBackView(DetailView):
     model = Card
-    template_name = 'flashcard_back.html'
+    template_name = 'flashcards_app/flashcard_back.html'
 
     def get_object(self, queryset=None):
         card = super().get_object(queryset)

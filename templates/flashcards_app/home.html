@@ -1,0 +1,19 @@
+{% extends 'flashcards_app/base.html' %}
+
+{% block content %}
+
+    <div>
+        <p>
+            Flashcards are a popular way to study. There are various ways to use them, for subjects ranging from foreign language to science. Using flashcards to self-test helps you learn information, and also helps you to identify any weak spots you may have with the material. It is better to discover weaknesses while you are studying, when you can still improve on them, instead of when you are in the middle of a high-stakes test.
+        </p>
+        <p>
+            This app allows you to create a new subject deck, check out the created subjects or create a card for an existing deck
+        </p>
+    </div>
+    <div class="w-50 mx-auto" style="margin: 40px">
+        <a class="btn btn-primary btn-lg btn-dark" href="{% url 'deck_create' %}" role="button">Create a Deck</a>
+        <a class="btn btn-primary btn-lg btn-dark" href="{% url 'deck_list' %}" role="button">See Deck List</a>
+    </div>
+
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'flashcards_app/base.html' %}
+
+{% block content %}
+
+    <div class="row">
+        <div><h1>{{ deck.name }} card list</h1></div>
+        <div style="margin: 6px">
+            <a href="{% url 'card_create' deck.id %}" class="btn btn-success btn-sm">Add card</a>
+        </div>
+    </div>
+    {% if card_list.count == 0 %}
+        <h5>There are no cards here yet, click on Add card to start!</h5>
+    {% endif %}
+    {% for card in card_list %}
+    <div class="row" style="margin-bottom: 40px">
+        <div class="col-sm-5">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Question</h5>
+                    <p class="card-text">{{ card.front }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Answer</h5>
+                    <p class="card-text">{{ card.back }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card text-center">
+                <a href="{% url 'card_update' card.pk %}" class="btn btn-primary">Edit Card</a>
+                <a href="{% url 'card_delete' card.pk %}" class="btn btn-danger">Delete Card</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+<style>
+.btn {
+    margin: 5px;
+    }
+</style>
+{% endblock content %}
+
