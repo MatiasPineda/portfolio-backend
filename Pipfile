@@ -20,6 +20,7 @@ django-cors-headers = "*"
 django-subdomains = "*"
 pillow = "*"
 djangorestframework = "*"
+django-hosts = "*"
 
 [requires]
 python_version = "3.7"

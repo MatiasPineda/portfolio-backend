@@ -12,7 +12,13 @@ SITE_ROOT = ROOT()
 DEBUG = ENV('DJANGO_DEBUG')
 SECRET_KEY = ENV('DJANGO_SECRET_KEY')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'mpineda.cl',
+    'api.mpineda.cl',
+    'www.mpineda.cl',
+    'app.mpineda.cl',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -32,7 +38,6 @@ INSTALLED_APPS = [
     # 3rd party
     'rest_framework',
     'corsheaders',
-    # 'subdomains'
 ]
 
 MIDDLEWARE = [
@@ -40,7 +45,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    # 'subdomains.middleware.SubdomainURLRoutingMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -55,7 +59,11 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',  # default vue
     'http://localhost:8000',  # devault django
+    'http://mpineda.cl'
 )
+
+# A dictionary of urlconf module paths, keyed by their subdomain.
+
 
 TEMPLATES = [
     {
